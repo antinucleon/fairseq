@@ -35,6 +35,9 @@ def init_bert_params(module):
         module.weight.data.normal_(mean=0.0, std=0.02)
         if module.bias is not None:
             module.bias.data.zero_()
+    if isinstance(module, nn.Conv1d):
+        scale = module.kernel_size[0]
+        module.weight.data.normal_(mean=0.0, std=0.02 / scale)
     if isinstance(module, nn.Embedding):
         module.weight.data.normal_(mean=0.0, std=0.02)
         if module.padding_idx is not None:

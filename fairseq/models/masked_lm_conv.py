@@ -16,6 +16,8 @@ from fairseq.modules import (
     MPConvSentenceEncoder,
 )
 
+from fairseq.modules.mpconv import init_bert_params
+
 logger = logging.getLogger(__name__)
 
 @register_model("masked_lm_conv")

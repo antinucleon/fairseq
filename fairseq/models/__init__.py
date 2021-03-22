@@ -206,7 +206,6 @@ for file in os.listdir(models_dir):
     ):
         model_name = file[: file.find(".py")] if file.endswith(".py") else file
         module = importlib.import_module("fairseq.models." + model_name)
-
         # extra `model_parser` for sphinx
         if model_name in MODEL_REGISTRY:
             parser = argparse.ArgumentParser(add_help=False)
